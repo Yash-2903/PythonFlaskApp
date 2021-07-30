@@ -9,11 +9,11 @@ def create_app():
         instance_relative_config=False,
         template_folder="templates"
     )
-    app.config.from_pyfile('config.py')
+    app.config.from_object('config.Config')
 
     with app.app_context():
         # Import parts of our app
-        import routes
-        import example
+        from Route import routes
+        from Example import example
 
         return app
