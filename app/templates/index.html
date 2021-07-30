@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Players Table</title>
 </head>
 <body>
-<p>Hello World</p>
+{% extends "layout.html" %}
+{% block content %}
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+        <th scope="col">Height</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Age</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for player in players %}
+    <tr>
+        <td>{{ player.id }}</td>
+         <td><a href="view/{{player.id}}">{{ player.Name }}</a></td>
+        <td>{{ player.Team }}</td>
+        <td>{{ player.Position }}</td>
+        <td>{{ player.Height }}</td>
+        <td>{{ player.Weight }}</td>
+        <td>{{ player.Age }}</td>
+        <td><a href="/edit/{{player.id}}" class="card-link btn btn-primary">edit</a></td>
+        <td><form action="/delete/{{player.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+    </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
 </body>
 </html>
