@@ -1,7 +1,7 @@
 from flask import Markup, make_response, request, jsonify
 from flask import current_app as app
 from flask import render_template
-from logic import square_of_number_plus_nine
+from .logic import square_of_number_plus_nine
 
 
 @app.route("/logic")
