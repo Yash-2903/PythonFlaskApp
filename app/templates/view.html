@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-
-{% extends "layout.html" %}
+{% include "home.html" %}
+<main role="main" class="container">
 {% block content %}
-
 <form class="form-horizontal">
   <div class="form-group">
       <label class="control-label col-sm-2"><b>Name:</b></label>
@@ -43,10 +42,11 @@
     </div>
   </div>
      <div class="card-body">
-        <a href="/" class="card-link btn btn-primary">Back</a>
+        <a href="/index" class="card-link btn btn-primary">Back</a>
     </div>
 
 </form>
 {% endblock %}
+</main>
 </body>
 </html>
