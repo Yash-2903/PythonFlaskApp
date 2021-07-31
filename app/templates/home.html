@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <style>
+                        .header {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 10px 25px;
+        }
+
+        .header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 45px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+        </style>
+</head>
+<body>
+{% extends 'layout.html' %}
+{% block content %}
+<div class="header">
+<a href="/" class="logo"><h1>{{title}}</h1></a>
+{% include 'navigation.html' %}
+        </div>
+{% endblock %}
+
+</body>
+</html>
