@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Bootstrap CSS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{{title}}</title>
+    <style>
+        .section h2 {
+            padding: 6px 10px;
+            background-color: #84A6C7;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-width: 0 0 0 6px;
+            color: #ffffff;
+            text-shadow: 1px 1px rgb(0 0 0);
+            -webkit-border-radius: 5px;
+        }
+
+        .section p {
+            text-align: justify;
+            margin: 1.5em 0 1.5em 0;
+        }
+
+        .section li {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+<!-- As a heading -->
+{% block content %}{% endblock %}
+<main class="container">
+    <div class="section">
+        <h2>What is flask?</h2>
+        <p>Flask is a web framework. This means flask provides you with tools, libraries and technologies that allow you
+            to
+            build a web application. This web application can be some web pages, a blog, a wiki or go as big as a
+            web-based
+            calendar application or a commercial website.</p>
+        <p>Flask is part of the categories of the micro-framework. Micro-framework are normally framework with little to
+            no
+            dependencies to external libraries. This has pros and cons. Pros would be that the framework is light,
+            there are little dependency to update and watch for security bugs, cons is that some time you will have to
+            do
+            more work by yourself or increase yourself the list of dependencies by adding plugins. In the case of Flask,
+            its dependencies are:
+        <ul>
+            <li>Werkzeug a WSGI utility library</li>
+            <li>jinja2 which is its template engine</li>
+        </ul>
+        </p>
+    </div>
+    <div class="section">
+        <div class="section" id="what-are-template-engines">
+            <h2>What are template engines?</h2>
+            <p>Have you ever built a website? Did you face the problem that to keep the style
+                of the website consistent, you have had to write multiple times the same text?
+                Did you ever try to change the style of such website?</p>
+            <p>If your website contains only few pages, changing its style will take you some
+                time but is doable. However, if you have a lot of pages (for example the list of
+                items you sell in your store), this task become overwhelming.</p>
+            <p>Using templates you are able to set a basic layout for your pages and mention
+                which element will change.
+                This way you can define your header once and keep it consistent over all the pages of
+                your website, and if you need to change your header, you will only have to
+                update it in one place.</p>
+            <p>Using a template engine will save you a lot of time when creating your
+                application but also when updating and maintaining it.</p>
+        </div>
+    </div>
+</main>
+<div id="footer">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>

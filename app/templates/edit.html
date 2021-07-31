@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+{% include "home.html" %}
+<main role="main" class="container">
+    {% block content %}
+    <form class="form-horizontal" action="/edit/{{player.id}}" method="post">
+        <div class="form-group">
+            <label for="name"><b>Name</b></label>
+            <div class="col-sm-10">
+                <input id="name" type="text" class="form-control" placeholder="Player Name" name="Name"
+                       value="{{player.Name}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="team"><b>Team</b></label>
+            <div class="col-sm-10">
+                <input id="team" type="text" class="form-control" placeholder="Player Team"
+                       name="Team" value="{{player.Team}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="position"><b>Position</b></label>
+            <div class="col-sm-10">
+                <input id="position" type="text" class="form-control" placeholder="Player Position" name="Position"
+                       value="{{player.Position}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="height"><b>Height</b></label>
+            <div class="col-sm-10">
+                <input id="height" type="text" class="form-control" placeholder="Player Height" name="Height"
+                       value="{{player.Height}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="weight"><b>Weight</b></label>
+            <div class="col-sm-10">
+                <input id="weight" type="text" class="form-control" placeholder="Player Weight" name="Weight"
+                       value="{{player.Weight}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age"><b>Age</b></label>
+            <div class="col-sm-10">
+                <input id="age" type="text" class="form-control" placeholder="Player Age"
+                       name="Age" value="{{player.Age}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </div>
+
+    </form>
+    {% endblock %}
+</main>
+</body>
+</html>
