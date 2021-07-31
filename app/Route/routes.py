@@ -5,18 +5,33 @@ from flask import render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 
-
 mysql = MySQL(cursorclass=DictCursor)
 mysql.init_app(app)
+nav = [
+    {'name': 'Contact Us', 'url': '/contact'},
+    {'name': 'Home', 'url': '/index'}
+]
 
 
-@app.route('/', methods=['GET'])
+@app.route("/")
+def home():
+    """Landing page."""
+    return render_template("home.html",
+                           nav=nav,
+                           title="Flask Application")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html", nav=nav, title='Flask Application')
+
+
+@app.route('/index', methods=['GET'])
 def index():
-    user = {'username': 'Player Project'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM tblmlbplayers')
     result = cursor.fetchall()
-    return render_template('index.html', title='Home', user=user, players=result)
+    return render_template('index.html', nav=nav, title='Flask Application', players=result)
 
 
 @app.route('/view/<int:player_id>', methods=['GET'])
@@ -24,7 +39,7 @@ def record_view(player_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM tblmlbplayers WHERE id=%s', player_id)
     result = cursor.fetchall()
-    return render_template('view.html', title='View Form', player=result[0])
+    return render_template('view.html', nav=nav, title='Flask Application', player=result[0])
 
 
 @app.route('/edit/<int:player_id>', methods=['GET'])
@@ -32,7 +47,7 @@ def form_edit_get(player_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM tblmlbplayers WHERE id=%s', player_id)
     result = cursor.fetchall()
-    return render_template('edit.html', title='Edit Form', player=result[0])
+    return render_template('edit.html', nav=nav, title='Flask Application', player=result[0])
 
 
 @app.route('/edit/<int:player_id>', methods=['POST'])
@@ -49,12 +64,12 @@ def form_update_post(player_id):
     %s, t.Weight = %s, t.Age = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
-    return redirect("/", code=302)
+    return redirect("/index", code=302)
 
 
 @app.route('/players/new', methods=['GET'])
 def form_insert_get():
-    return render_template('new.html', title='New Player Form')
+    return render_template('new.html', nav=nav, title='Flask Application', )
 
 
 @app.route('/players/new', methods=['POST'])
@@ -71,7 +86,7 @@ def form_insert_post():
     VALUES (%s, %s,%s, %s,%s, %s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
-    return redirect("/", code=302)
+    return redirect("/index", code=302)
 
 
 @app.route('/delete/<int:player_id>', methods=['POST'])
@@ -80,7 +95,7 @@ def form_delete_post(player_id):
     sql_delete_query = """DELETE FROM tblmlbplayers WHERE id = %s """
     cursor.execute(sql_delete_query, player_id)
     mysql.get_db().commit()
-    return redirect("/", code=302)
+    return redirect("/index", code=302)
 
 
 # Get all Data api
