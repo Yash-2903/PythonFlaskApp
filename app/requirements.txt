@@ -2,3 +2,6 @@ Flask
 flask-mysql
 simplejson
 mysql-connector
+flask-wtf
+wtforms
+email-validator
