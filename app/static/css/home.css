@@ -1,0 +1,22 @@
+       .section h2 {
+            padding: 6px 10px;
+            background-color: #84A6C7;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-width: 0 0 0 6px;
+            color: #ffffff;
+            text-shadow: 1px 1px rgb(0 0 0);
+            -webkit-border-radius: 5px;
+        }
+
+        .section p {
+            text-align: justify;
+            margin: 1.5em 0 1.5em 0;
+        }
+
+        .section li {
+            text-align: justify;
+        }
+
+        .section {
+            display: block;
+        }
