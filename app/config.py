@@ -7,3 +7,4 @@ class Config:
     MYSQL_DATABASE_PASSWORD = 'root'
     MYSQL_DATABASE_PORT = 3306
     MYSQL_DATABASE_DB = 'citiesData'
+    SECRET_KEY = "IHUGVFIYUJYIGUibt6gh"

@@ -1,38 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <style>
-                        .header {
-            overflow: hidden;
-            background-color: #f1f1f1;
-            padding: 10px 25px;
-        }
-
-        .header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 45px;
-  border-radius: 4px;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-        </style>
-</head>
-<body>
+{% block styles %}
+<link
+        rel="stylesheet"
+        href="/static/css/home.css"
+        type="text/css"
+/>
+{% endblock %}
 {% extends 'layout.html' %}
 {% block content %}
-<div class="header">
-<a href="/" class="logo"><h1>{{title}}</h1></a>
 {% include 'navigation.html' %}
-        </div>
+<main class="container">
+    <div class="section f1">
+        <h2>What is flask?</h2>
+        <p>Flask is a web framework. This means flask provides you with tools, libraries and technologies that allow you
+            to
+            build a web application. This web application can be some web pages, a blog, a wiki or go as big as a
+            web-based
+            calendar application or a commercial website.</p>
+        <p>Flask is part of the categories of the micro-framework. Micro-framework are normally framework with little to
+            no
+            dependencies to external libraries. This has pros and cons. Pros would be that the framework is light,
+            there are little dependency to update and watch for security bugs, cons is that some time you will have to
+            do
+            more work by yourself or increase yourself the list of dependencies by adding plugins. In the case of Flask,
+            its dependencies are:
+        <ul>
+            <li>Werkzeug a WSGI utility library</li>
+            <li>jinja2 which is its template engine</li>
+        </ul>
+        </p>
+    </div>
+    <div>
+        <p>Need to see the Player Table, Click on <i>"Log In"</i> button.</p>
+    </div>
+</main>
 {% endblock %}
-
-</body>
-</html>
