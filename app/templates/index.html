@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-{% include "home.html" %}
+{% include 'layout.html' %}
+{% include 'navigation.html' %}
+{% block content %}
 <main role="main" class="container">
-    {% block content %}
     <div>
         <a class="btn btn-primary" href="/players/new">Add New Player
             <span class="sr-only">(current)</span>
@@ -43,7 +41,6 @@
         {% endfor %}
         </tbody>
     </table>
-    {% endblock %}
 </main>
-</body>
-</html>
+{% endblock %}
+

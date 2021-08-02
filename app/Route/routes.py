@@ -1,15 +1,17 @@
 from flask import current_app as app
 import simplejson as json
-from flask import Flask, request, Response, redirect
+from flask import Flask, request, Response, redirect, url_for
 from flask import render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
+from .forms import ContactForm, SigninForm
+from pprint import pprint
 
 mysql = MySQL(cursorclass=DictCursor)
 mysql.init_app(app)
 nav = [
     {'name': 'Contact Us', 'url': '/contact'},
-    {'name': 'Home', 'url': '/index'}
+    {'name': 'Log In', 'url': '/signin'},
 ]
 
 
@@ -96,6 +98,20 @@ def form_delete_post(player_id):
     cursor.execute(sql_delete_query, player_id)
     mysql.get_db().commit()
     return redirect("/index", code=302)
+
+
+@app.route("/signin", methods=["GET", "POST"])
+def form_signin_get():
+    form = SigninForm()
+    if request.method == 'POST' and form.validate():
+        if (form.email.data == "njit@gmail.com") and (form.password.data == "password"):
+            return redirect("/index", code=302)
+
+    return render_template(
+        "signin.html",
+        form=form,
+        nav=nav, title='Flask Application'
+    )
 
 
 # Get all Data api
