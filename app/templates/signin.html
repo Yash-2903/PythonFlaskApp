@@ -10,7 +10,7 @@
 {% block content %}
 <main class="container">
     <div class="form-wrapper">
-        <h2 class="title">Sign In</h2>
+        <h2 class="title">Log In</h2>
         <p><i>Type same as given placeholder in input</i></p>
         <form method="POST" action="/signin">
             {{ form.csrf_token }}
@@ -19,7 +19,7 @@
                 <ul class="errors">
                     {% for error in form.email.errors %}
                     <li class="error">
-                        <i class="fas fa-exclamation"></i> <span class="error-message">{{ error }}</span>
+                        <span class="error-message">{{ error }}</span>
                     </li>
                     {% endfor %}
                 </ul>
@@ -31,7 +31,7 @@
                 <ul class="errors">
                     {% for error in form.password.errors %}
                     <li class="error">
-                        <i class="fas fa-exclamation"></i> <span class="error-message">{{ error }}</span>
+                        <span class="error-message">{{ error }}</span>
                     </li>
                     {% endfor %}
                 </ul>
